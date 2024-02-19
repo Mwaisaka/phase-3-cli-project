@@ -3,7 +3,7 @@ import sys
 
 sys.path.append(os.getcwd)
 
-from sqlalchemy import (create_engine, PrimaryKeyConstraint, Column, String, Integer, ForeignKey, Table)
+from sqlalchemy import (create_engine, Column, String, Integer, ForeignKey, Table)
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship, backref
 
