@@ -30,7 +30,6 @@ class Product(Base):
     item_quantity = Column(Integer)
     price = Column(Integer)
     
-
     suppliers=relationship('Supplier', secondary=product_supplier, back_populates='products')
     braches=relationship('Branch', backref=backref('product'))
 
