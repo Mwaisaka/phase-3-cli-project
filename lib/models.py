@@ -49,7 +49,7 @@ class Supplier(Base):
         return f'Supplier: {self.name}'
     
 class Branch(Base):
-    __tablename__ = 'branches'
+    __tablename__ = 'outlets'
     
     id = Column(Integer, primary_key=True)
     branch_name = Column(String())
