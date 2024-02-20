@@ -52,13 +52,13 @@ class Branch(Base):
     __tablename__ = 'branches'
     
     id = Column(Integer, primary_key=True)
-    branch_number = Column(Integer)
+    branch_name = Column(String())
     
     product_id = Column(Integer, ForeignKey('products.id'))
     supplier_id = Column(Integer, ForeignKey('suppliers.id'))
        
     def __repr__(self):
-        return f'Review(id={self.id},'+\
-            f'Name={self.name})'
+        return f'Branch(id={self.id},'+\
+            f'Name={self.branch_name})'
                     
     

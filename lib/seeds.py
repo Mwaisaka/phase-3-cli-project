@@ -20,12 +20,20 @@ if __name__ == '__main__':
     
     fake=Faker()
         
+    # Use a set to ensure unique cities
+    branch_set = set()
+    while len(branch_set) < 10:
+        branch_set.add(fake.city())
+    
+    # Convert set to list
+    branch_list = list(branch_set)
+    
         
     products =[]
     for i in range(50):
         product=Product(
             name=random.choice(product_names),
-            price=random.randint(1,50)
+            price=random.randint(100,1000)
         )
         
         session.add(product)
@@ -42,23 +50,26 @@ if __name__ == '__main__':
         session.commit()
         
         suppliers.append(supplier)
-    
-    branches=[]
-    for product in products:
-        for i in range(random.randint(1,10)):
-            supplier=random.choice(suppliers)
-            if product not in supplier.products:
-                supplier.products.append(product)
-                session.add(supplier)
-                session.commit()
                 
-            branch=Branch(
-                branch_number=random.randint(1, 10),
-                product_id=product.id,
-                supplier_id=supplier.id,
-            )
+    branches=[]
+    # Ensure only 10 branches are created
+    for _ in range(10):
+        product = random.choice(products)
+        supplier = random.choice(suppliers)
+        
+        if product not in supplier.products:
+            supplier.products.append(product)
+            session.add(supplier)
+            session.commit()
             
-            branches.append(branch)
+        branch = Branch(
+            branch_name=random.choice(branch_list),
+            product_id=product.id,
+            supplier_id=supplier.id,
+        )
+        
+        branches.append(branch)
+        
     session.bulk_save_objects(branches)
     session.commit()
     session.close()
