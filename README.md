@@ -18,9 +18,9 @@ The Inventory Management CLI application is designed to help businesses efficien
 **Commands:**
 
 ### 1. Adding, Updating, and Removing Products
-   - inventory add <product_name> <quantity> <price>
-   - inventory update <product_id> <new_quantity> <new_price>
-   - inventory remove <product_id>
+   - inventory add <product_name> <item_quantity> <price>
+   - inventory update <product_name> <new_price>
+   - inventory remove <product_name>
 
 ### 2. Updating Product Information
     inventory update-info <product_id>
@@ -29,9 +29,8 @@ The Inventory Management CLI application is designed to help businesses efficien
     inventory search --name <product_name>
     
 ### 4. Checking Stock Levels
-    inventory check-stock <product_id>
-    inventory check-all-stock
-
+    inventory check-stock <product_name>
+    
 ### 5. Checking the Entire Inventory
     inventory show-all
     

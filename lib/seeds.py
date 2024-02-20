@@ -33,6 +33,7 @@ if __name__ == '__main__':
     for i in range(50):
         product=Product(
             name=random.choice(product_names),
+            item_quantity=random.randint(0,100),
             price=random.randint(100,1000)
         )
         
