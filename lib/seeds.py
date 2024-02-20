@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from models import Product,Supplier, Branch, Base
+from products_list import product_names
 
 if __name__ == '__main__':
     
@@ -19,7 +20,6 @@ if __name__ == '__main__':
     
     fake=Faker()
         
-    product_names = [fake.name() for _ in range(50)]
         
     products =[]
     for i in range(50):
