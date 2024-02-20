@@ -30,7 +30,7 @@ if __name__ == '__main__':
     
         
     products =[]
-    for i in range(50):
+    for i in range(20):
         product=Product(
             name=random.choice(product_names),
             item_quantity=random.randint(0,100),

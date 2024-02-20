@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker, relationship, backref
 
 
 Base = declarative_base()
-engine = create_engine('sqlite:///db/inventory.db', echo=True)
+engine = create_engine('sqlite:///inventory.db', echo=True)
 Session = sessionmaker(bind=engine)
 session = Session()
 
@@ -91,7 +91,7 @@ class Product(Base):
         if all_products:
             print("All products in the inventory:")
             for product in all_products:
-                print(f"ID: {product.id}, Name: {product.name}, Quantity: {product.item_quantity}, Price: {product.price} Kes")
+                print(f"ID: {product.id},Product Name: {product.name}, Quantity: {product.item_quantity}, Price: {product.price} Kes")
         else:
             print("No products found in the inventory.")
 
