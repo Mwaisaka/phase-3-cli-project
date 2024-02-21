@@ -35,7 +35,6 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine) 
     Session = sessionmaker(bind=engine)
     session = Session()
-6
 while True:
     print("\nOptions:")
     print("1. Add a new product")
