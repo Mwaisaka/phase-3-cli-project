@@ -6,7 +6,7 @@ sys.path.append(os.getcwd)
 from sqlalchemy import (create_engine, Column, String, Integer, ForeignKey, Table)
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship, backref
-
+from tabulate import tabulate
 
 Base = declarative_base()
 engine = create_engine('sqlite:///inventory.db', echo=True)
@@ -87,11 +87,15 @@ class Product(Base):
     def show_all_products(cls):
         # Query the database to retrieve all products
         all_products = session.query(cls).all()
-
+        
         if all_products:
-            print("All products in the inventory:")
+            table_data = []
             for product in all_products:
-                print(f"ID: {product.id},Product Name: {product.name}, Quantity: {product.item_quantity}, Price: {product.price} Kes")
+                table_data.append([product.id, product.name, product.item_quantity, f"{product.price} Kes"])
+
+            headers = ["ID", "Product Name", "Quantity", "Price"]
+            print("All products in the inventory:")
+            print(tabulate(table_data, headers=headers, tablefmt="grid"))
         else:
             print("No products found in the inventory.")
 
